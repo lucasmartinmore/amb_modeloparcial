@@ -6,7 +6,7 @@
 typedef struct
 {
     char nombreInstrumento[25];
-    char tipoInstrumento[25];
+    int tipoInstrumento;
     int idInstrumento;
     int isEmptyInstrumento;
 } eInstrumento;
@@ -16,4 +16,9 @@ typedef struct
 
 int subMenuTipoInstrumento();
 int subMenuInstrumento();
+int iniciarInstrumento(eInstrumento instrumento[], int tamInstrumento);
+int buscarInstrumentoVacio(eInstrumento instrumento[], int tamInstrumento, int* error);
+int altaInstrumento(eInstrumento instrumento[],int tamIntrumento, int posicion, int idInstrumento);
+void mostrarIntrumento(eInstrumento instrumento);
+int mostrarIntrumentos(eInstrumento instrumento[],int tamInstrumento);
 

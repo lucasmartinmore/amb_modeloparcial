@@ -1,5 +1,7 @@
 #ifndef MUSICO_H_INCLUDED
 #define MUSICO_H_INCLUDED
+#include "Orquesta.h"
+#include "Intrumento.h"
 
 typedef struct
 {
@@ -12,16 +14,12 @@ typedef struct
     int isEmptyMusico;
 } eMusico;
 
-//AGREGO LAS OTRAS ESTRUCTURAS QUE NECESITO
-
-
-
 #endif // MUSICO_H_INCLUDED
 
 int subMenuMusico();
 int iniciarMusico(eMusico musico[], int tamMusico);
 int buscarMusicoVacio(eMusico musico[], int tamMusico, int* error);
-int altaMusico(eMusico musico[],int tamMusico,eOrquesta orquesta[], int tamOrquesta, int posicion,int idMusico);
+int altaMusico(eMusico musico[],int tamMusico,eOrquesta orquesta[], int tamOrquesta,eInstrumento instrumento[], int tamInstrumento, int posicion,int idMusico);
 int bajaMusico(eMusico musico[], int tamMusico);
 void mostrarMusico(eMusico musico, eInstrumento instrumento);
 int mostrarMusicos(eMusico musico[],int tamMusico, eInstrumento instrumento[]);

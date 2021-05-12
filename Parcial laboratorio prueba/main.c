@@ -4,24 +4,20 @@
 #include "Orquesta.h"
 #include "Intrumento.h"
 #include "Musico.h"
-
-int MenuPrincipal();
-
+//TAMAÑO DE MIS ARRAYS
 #define TAM_ORQUESTA 3
 #define TAM_INSTRUMENTO 3
 #define TAM_MUSICO 1000
 
+
+
 int main()
 {
     eOrquesta orquestas[TAM_ORQUESTA];
-    eInstrumento instrumentos[TAM_INSTRUMENTO]=
-    {
-        {"Guitarra","Cuerda",1,0},
-        {"Flauta","Viento",2,0},
-        {"Teclado","Percucion",3,0}
-    };
+    eInstrumento instrumentos[TAM_INSTRUMENTO];
     eMusico musicos[TAM_MUSICO];
 
+    //VARIABLES DE MENU PRINCIPAL
     int seguirPrincipal=0;
     int seguirOrquesta=0;
     int seguirMusico=0;
@@ -36,9 +32,15 @@ int main()
     int errorMusico;
     int idMusico=100;
     int contadorInicialMusico=0;
+    //VARIABLES DE INSTRUMENTO
+    int posicionInstrumento;
+    int errorInstrumento;
+    int idInstrumento=100;
+    int contadorInicialIntrumento=0;
     //INICIALIZADORES
     iniciarOrquesta(orquestas, TAM_ORQUESTA);
     iniciarMusico(musicos, TAM_MUSICO);
+    iniciarInstrumento(instrumentos, TAM_INSTRUMENTO);
 
     do
     {
@@ -104,17 +106,24 @@ int main()
                 switch(subMenuMusico())
                 {
                 case 1:
-                    posicionMusico = buscarMusicoVacio(musicos, TAM_MUSICO,&errorMusico);
-                    if(errorMusico!=-1)
+                    if(contadorInicialIntrumento==0 || contadorInicialOrquesta==0)
                     {
-                        altaMusico(musicos, TAM_MUSICO, orquestas, TAM_ORQUESTA, posicionMusico, idMusico);
-                        idMusico++;
-                        printf("Alta exitosa\n");
-                        contadorInicialMusico=1;
+                        printf("Antes de cargar musico deben cargarse intrumento y orquesta\n");
                     }
-                    else
+                    else if(posicionInstrumento!=-1 || posicionOrquesta!=-1)
                     {
-                        printf("No se encuentra lugar vacio\n");
+                        posicionMusico = buscarMusicoVacio(musicos, TAM_MUSICO,&errorMusico);
+                        if(errorMusico!=-1)
+                        {
+                            altaMusico(musicos, TAM_MUSICO, orquestas, TAM_ORQUESTA,instrumentos, TAM_INSTRUMENTO, posicionMusico, idMusico);
+                            idMusico++;
+                            printf("Alta exitosa\n");
+                            contadorInicialMusico=1;
+                        }
+                        else
+                        {
+                            printf("No se encuentra lugar vacio\n");
+                        }
                     }
                     break;
                 case 2:
@@ -175,9 +184,25 @@ int main()
                 {
                 case 1:
                     printf("DAR ALTA INTRUMENTO\n");
+                    posicionInstrumento = buscarInstrumentoVacio(instrumentos, TAM_INSTRUMENTO, &errorInstrumento);
+                    if(errorInstrumento!=-1)
+                    {
+                        altaInstrumento(instrumentos, TAM_INSTRUMENTO, posicionInstrumento, idInstrumento);
+                        idInstrumento++;
+                        printf("Alta exitosa\n");
+                        contadorInicialIntrumento=1;
+                    }
+                    else
+                    {
+                        printf("No se encuentra lugar vacio\n");
+                    }
                     break;
                 case 2 :
                     printf("IMPRIMO INSTRUMENTO\n");
+                    if( mostrarIntrumentos(instrumentos, TAM_INSTRUMENTO)==-1)
+                    {
+                        printf("    No se cargo ningun instrumento\n");
+                    }
                     break;
                 case 3:
                     seguirIntrumento=1;
@@ -195,24 +220,4 @@ int main()
 }
 
 
-
-int MenuPrincipal()
-{
-    system("cls");
-    int opcion;
-    printf("|--------AMB---------|\n");
-    printf("|  1) ORQUESTA       |\n");
-    printf("|  2) MUSICO         |\n");
-    printf("|  3) INSTRUMENTO    |\n");
-    printf("|--------------------|\n\n");
-    printf("----------------------\n");
-    printf("   Ingrese opcion: ");
-    scanf("%d", &opcion);
-    while(opcion<1 || opcion>3)
-    {
-        printf("Reingrese opcion: ");
-        scanf("%d", &opcion);
-    }
-    return opcion;
-}
 

@@ -3,6 +3,8 @@
 #include <string.h>
 #include "Musico.h"
 
+#define TAM_ORQUESTA 3
+
 int subMenuMusico()
 {
     system("cls");
@@ -59,10 +61,9 @@ int buscarMusicoVacio(eMusico musico[], int tamMusico, int* error)
     return posicion;
 }
 
-int altaMusico(eMusico musico[],int tamMusico,eOrquesta orquesta[], int tamOrquesta, int posicion,int idMusico)
+int altaMusico(eMusico musico[],int tamMusico,eOrquesta orquesta[], int tamOrquesta,eInstrumento instrumento[], int tamInstrumento, int posicion,int idMusico)
 {
     int error=-1;
-    int tipoInstrumento;
     if((musico!=NULL && tamMusico>0) && posicion!=-1)
     {
         musico[posicion].isEmptyMusico=0;
@@ -89,8 +90,9 @@ int altaMusico(eMusico musico[],int tamMusico,eOrquesta orquesta[], int tamOrque
         printf("Ingrese id de orquesta perteneciente: ");
         scanf("%d", &musico[posicion].idOrquesta);
 
-        tipoInstrumento=subMenuTipoInstrumento();
-        musico[posicion].idInstrumento = tipoInstrumento;
+        mostrarIntrumentos(instrumento, tamInstrumento);
+        printf("Ingrese id de intrumento a tocar: ");
+        scanf("%d", &musico[posicion].idInstrumento);
 
         error=1;
     }
@@ -104,7 +106,23 @@ void mostrarMusico(eMusico musico, eInstrumento instrumento)
     if(musico.idInstrumento == instrumento.idInstrumento)
     {
         strcpy(nombreInstrumento, instrumento.nombreInstrumento);
-        strcpy(tipoInstrumento, instrumento.tipoInstrumento);
+        //strcpy(tipoInstrumento, instrumento.tipoInstrumento);
+    }
+    if(instrumento.tipoInstrumento==1)
+    {
+        strcpy(tipoInstrumento, "Cuerdas");
+    }
+    else if(instrumento.tipoInstrumento==2)
+    {
+        strcpy(tipoInstrumento, "Viento-Madera");
+    }
+    else if(instrumento.tipoInstrumento==3)
+    {
+        strcpy(tipoInstrumento, "Viento-Metal");
+    }
+    else
+    {
+        strcpy(tipoInstrumento, "Percusion");
     }
     printf(" %d      %s       %s       %d      %s       %s\n",musico.idMusico,musico.nombreMusico,
     musico.apellidoMusico,musico.edadMusico,nombreInstrumento,tipoInstrumento);

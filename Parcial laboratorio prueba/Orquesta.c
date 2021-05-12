@@ -183,3 +183,24 @@ int bajaOrquesta(eOrquesta orquesta[], int tamOrquesta)
     }
     return error;
 }
+
+
+int MenuPrincipal()
+{
+    system("cls");
+    int opcion;
+    printf("|--------AMB---------|\n");
+    printf("|  1) ORQUESTA       |\n");
+    printf("|  2) MUSICO         |\n");
+    printf("|  3) INSTRUMENTO    |\n");
+    printf("|--------------------|\n\n");
+    printf("----------------------\n");
+    printf("   Ingrese opcion: ");
+    scanf("%d", &opcion);
+    while(opcion<1 || opcion>3)
+    {
+        printf("Reingrese opcion: ");
+        scanf("%d", &opcion);
+    }
+    return opcion;
+}

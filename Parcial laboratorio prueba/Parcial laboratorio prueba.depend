@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620611702 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\main.c
+1620784380 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,24 +7,29 @@
 	"Intrumento.h"
 	"Musico.h"
 
-1620601494 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\instrumento.c
-	"Intrumento.h"
-
-1620532131 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\intrumento.h
-
-1620601704 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\musico.c
-	"Musico.h"
+1620774091 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"Intrumento.h"
 
-1620696948 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\musico.h
+1620773897 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\intrumento.h
 
-1620601262 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\orquesta.c
+1620765915 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Musico.h"
+
+1620765476 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\musico.h
+	"Orquesta.h"
+	"Intrumento.h"
+
+1620774227 source:c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\orquesta.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Orquesta.h"
 
-1620578708 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\orquesta.h
+1620774227 c:\users\lucas\desktop\laboratorio-programacion\parcial laboratorio prueba\orquesta.h
 

@@ -12,6 +12,7 @@ typedef struct
 
 #endif // ORQUESTA_H_INCLUDED
 
+int MenuPrincipal();
 int subMenuTipoOrquesta();
 int subMenuOrquesta();
 int iniciarOrquesta(eOrquesta orquesta[], int tamOrquesta);
