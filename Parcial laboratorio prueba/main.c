@@ -5,8 +5,8 @@
 #include "Intrumento.h"
 #include "Musico.h"
 //TAMAÑO DE MIS ARRAYS
-#define TAM_ORQUESTA 3
-#define TAM_INSTRUMENTO 3
+#define TAM_ORQUESTA 50
+#define TAM_INSTRUMENTO 20
 #define TAM_MUSICO 1000
 
 
